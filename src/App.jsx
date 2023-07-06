@@ -5,19 +5,22 @@ import Add from "./pages/Add";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { Col, Row } from "antd";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Routes>
-        <Route path="/" exact element={<View />} />
-        <Route path="/add" exact element={<Add />} />
-        <Route path="/edit" exact element={<Edit />} />
-        <Route path="*" exact element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </>
+    <Row gutter={0} align="center">
+      <Col xs={12}>
+        <Header />
+        <Routes>
+          <Route path="/" exact element={<View />} />
+          <Route path="/add" exact element={<Add />} />
+          <Route path="/edit" exact element={<Edit />} />
+          <Route path="*" exact element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </Col>
+    </Row>
   );
 }
 

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { updateStudent } from "../store/studentSlice";
+import { Button } from "antd";
+import Input from "antd/es/input/Input";
+import TextArea from "antd/es/input/TextArea";
 
 const Edit = () => {
   const location = useLocation();
@@ -23,7 +26,7 @@ const Edit = () => {
       <form onSubmit={handleUpdate}>
         <label htmlFor="name">Name</label>
         <br />
-        <input
+        <Input
           id="name"
           type="text"
           name="name"
@@ -34,16 +37,19 @@ const Edit = () => {
         <br />
         <label htmlFor="address">Address</label>
         <br />
-        <textarea
+        <TextArea
           autoComplete="false"
           id="address"
           rows={4}
           name="address"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
-        ></textarea>
+        ></TextArea>
         <br />
-        <button type="submit">Update</button>
+        <br />
+        <Button type="primary" htmlType="submit">
+          Update
+        </Button>
       </form>
     </>
   );

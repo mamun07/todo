@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addStudent } from "../store/studentSlice";
+import { Button, Input } from "antd";
+import TextArea from "antd/es/input/TextArea";
 
 const Add = () => {
   const [name, setName] = useState("");
@@ -20,7 +22,7 @@ const Add = () => {
     <form onSubmit={addHandel}>
       <label htmlFor="name">Name</label>
       <br />
-      <input
+      <Input
         id="name"
         type="text"
         name="name"
@@ -31,16 +33,19 @@ const Add = () => {
       <br />
       <label htmlFor="address">Address</label>
       <br />
-      <textarea
+      <TextArea
         autoComplete="false"
         id="address"
         rows={4}
         value={address}
         name="address"
         onChange={(e) => setAddress(e.target.value)}
-      ></textarea>
+      ></TextArea>
       <br />
-      <button type="submit">Add</button>
+      <br />
+      <Button type="default" htmlType="submit">
+        Add
+      </Button>
     </form>
   );
 };
